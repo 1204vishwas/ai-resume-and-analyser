@@ -1,0 +1,16 @@
+{
+  "name": "ai-resume-analyzer",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AI Resume Analyzer - runs the Flask (NLP) backend and React frontend together.",
+  "scripts": {
+    "start": "concurrently -k -n BACKEND,FRONTEND -c cyan,magenta \"npm:start:backend\" \"npm:start:frontend\"",
+    "start:backend": "cd backend && venv\\Scripts\\python.exe app.py",
+    "start:frontend": "cd frontend && npm start",
+    "dev": "npm start",
+    "install:all": "npm install && npm --prefix frontend install && backend\\venv\\Scripts\\python.exe -m pip install -r backend/requirements.txt"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
